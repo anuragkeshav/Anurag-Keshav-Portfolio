@@ -1,4 +1,5 @@
 import { Sparkles, Code, Rocket, Target } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const journeyData = [
   {
@@ -28,22 +29,31 @@ const JourneySection = () => {
     <section id="journey" className="py-24 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="section-title animate-fade-up">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="section-title">
             My <span className="gradient-text">Journey</span>
           </h2>
-          <p className="section-subtitle mx-auto animate-fade-up-delay-1">
+          <p className="section-subtitle mx-auto">
             The path that shaped my development career
           </p>
-        </div>
+        </motion.div>
 
         {/* Timeline */}
         <div className="max-w-3xl mx-auto">
           {journeyData.map((item, index) => (
-            <div
+            <motion.div
               key={item.title}
-              className="relative pl-16 pb-12 last:pb-0 animate-fade-up"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="relative pl-16 pb-12 last:pb-0"
             >
               {/* Timeline Line */}
               {index < journeyData.length - 1 && <div className="timeline-line" />}
@@ -63,7 +73,7 @@ const JourneySection = () => {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

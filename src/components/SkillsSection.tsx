@@ -1,4 +1,5 @@
 import { Code2, Terminal, BookOpen, Wrench } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const skillsData = [
   {
@@ -28,22 +29,31 @@ const SkillsSection = () => {
     <section id="skills" className="py-24 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="section-title animate-fade-up">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="section-title">
             My <span className="gradient-text">Skills</span>
           </h2>
-          <p className="section-subtitle mx-auto animate-fade-up-delay-1">
+          <p className="section-subtitle mx-auto">
             Technologies and tools I work with to bring ideas to life
           </p>
-        </div>
+        </motion.div>
 
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillsData.map((category, index) => (
-            <div
+            <motion.div
               key={category.title}
-              className="glass-card p-6 animate-fade-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="glass-card p-6"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
@@ -63,7 +73,7 @@ const SkillsSection = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

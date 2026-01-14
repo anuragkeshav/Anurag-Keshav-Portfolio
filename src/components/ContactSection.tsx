@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Send, Mail, Github, Linkedin } from 'lucide-react';
+import { Send, Mail, Github, Linkedin, Instagram } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -15,33 +16,49 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Format message for WhatsApp
     const whatsappMessage = `Hi, I'm ${formData.name}!\n\nEmail: ${formData.email}\n\nMessage: ${formData.message}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    
-    // Replace with your WhatsApp number
-    const whatsappNumber = '919876543210'; // Example: India country code + number
+    const whatsappNumber = '919955516769';
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
   };
 
+  const socialLinks = [
+    { href: 'mailto:anuragkeshav23@gmail.com', icon: Mail, label: 'Email' },
+    { href: 'https://github.com/anuragkeshav', icon: Github, label: 'GitHub' },
+    { href: 'https://www.linkedin.com/in/anurag-keshav', icon: Linkedin, label: 'LinkedIn' },
+    { href: 'https://www.instagram.com/anuragkeshav_/', icon: Instagram, label: 'Instagram' },
+  ];
+
   return (
     <section id="contact" className="py-24 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="section-title animate-fade-up">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="section-title">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="section-subtitle mx-auto animate-fade-up-delay-1">
+          <p className="section-subtitle mx-auto">
             Have a project in mind? Let's create something amazing together.
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact Card */}
         <div className="max-w-xl mx-auto">
-          <div className="glass-card p-8 animate-fade-up-delay-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="glass-card p-8"
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -96,36 +113,29 @@ const ContactSection = () => {
                 Send on WhatsApp
               </button>
             </form>
-          </div>
+          </motion.div>
 
           {/* Social Links */}
-          <div className="flex justify-center gap-6 mt-8 animate-fade-up-delay-3">
-            <a
-              href="mailto:your@email.com"
-              className="p-4 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
-              aria-label="Email"
-            >
-              <Mail size={24} />
-            </a>
-            <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
-              aria-label="GitHub"
-            >
-              <Github size={24} />
-            </a>
-            <a
-              href="https://linkedin.com/in/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={24} />
-            </a>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex justify-center gap-4 mt-8"
+          >
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith('mailto') ? undefined : '_blank'}
+                rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                className="p-4 rounded-full bg-secondary/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                aria-label={link.label}
+              >
+                <link.icon size={24} />
+              </a>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
