@@ -1,23 +1,36 @@
 import { GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const EducationSection = () => {
   return (
     <section id="education" className="py-24 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="section-title animate-fade-up">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="section-title">
             Education & <span className="gradient-text">Training</span>
           </h2>
-          <p className="section-subtitle mx-auto animate-fade-up-delay-1">
+          <p className="section-subtitle mx-auto">
             Academic background and professional development
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Education Card */}
-          <div className="glass-card p-8 animate-fade-up">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="glass-card p-8"
+          >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-4 rounded-2xl bg-primary/10 text-primary">
                 <GraduationCap size={32} />
@@ -49,10 +62,16 @@ const EducationSection = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Internship Card */}
-          <div className="glass-card p-8 animate-fade-up-delay-1">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="glass-card p-8"
+          >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-4 rounded-2xl bg-primary/10 text-primary">
                 <Award size={32} />
@@ -80,7 +99,7 @@ const EducationSection = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

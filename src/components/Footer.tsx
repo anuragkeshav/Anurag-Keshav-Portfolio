@@ -8,7 +8,7 @@ const Footer = () => {
           Made with{' '}
           <Heart size={16} className="text-primary fill-primary animate-pulse" />
           {' '}by{' '}
-          <span className="gradient-text font-semibold">Aryan Kumar</span>
+          <span className="gradient-text font-semibold">Anurag Keshav</span>
         </p>
         <p className="text-sm text-muted-foreground/60 mt-2">
           © 2026 All rights reserved
