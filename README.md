@@ -1,8 +1,5 @@
 # Welcome to my personal project
 
-## Project info
-
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
 
 **Used my preferred IDE**
