@@ -27,10 +27,10 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6"
         >
           <span className="text-foreground">Hi, I'm </span>
-          <span className="gradient-text">Anurag Keshav</span>
+          <span className="gradient-text whitespace-nowrap">Anurag Keshav</span>
         </motion.h1>
 
         <motion.p 
