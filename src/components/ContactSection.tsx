@@ -32,7 +32,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section id="contact" className="py-24 relative z-10">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div 
