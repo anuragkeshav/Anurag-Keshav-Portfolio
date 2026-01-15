@@ -32,7 +32,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative z-10">
+    <section id="contact" className="py-24 relative z-20 isolate">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div 
@@ -57,9 +57,9 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="glass-card p-8"
+            className="glass-card p-8 relative z-30 pointer-events-auto"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 relative z-30 pointer-events-auto">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
@@ -71,7 +71,7 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="glass-input"
+                  className="glass-input pointer-events-auto"
                   placeholder="Your name"
                 />
               </div>
@@ -87,7 +87,7 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="glass-input"
+                  className="glass-input pointer-events-auto"
                   placeholder="your@email.com"
                 />
               </div>
@@ -103,12 +103,15 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="glass-input resize-none"
+                  className="glass-input resize-none pointer-events-auto"
                   placeholder="Your message..."
                 />
               </div>
 
-              <button type="submit" className="btn-primary-glow w-full flex items-center justify-center gap-2">
+              <button
+                type="submit"
+                className="btn-primary-glow w-full flex items-center justify-center gap-2 pointer-events-auto"
+              >
                 <Send size={18} />
                 Send on WhatsApp
               </button>
